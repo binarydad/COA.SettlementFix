@@ -33,6 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="COA.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\COA.Common.20.9.2.2\lib\net452\COA.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="COA.EnterpriseServices.DataObjects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\DataObjects.20.9.8.1\lib\net452\COA.EnterpriseServices.DataObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="CsvHelper, Version=3.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>packages\CsvHelper.3.1.0\lib\net45\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -55,24 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Connected Services\CreditorServiceWcf\COA.SettlementFix.CreditorServiceWcf.CommunicationResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\CreditorServiceWcf\COA.SettlementFix.CreditorServiceWcf.Contact.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\CreditorServiceWcf\COA.SettlementFix.CreditorServiceWcf.OutsourcedCreditor.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\CreditorServiceWcf\COA.SettlementFix.CreditorServiceWcf.Payment.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\CreditorServiceWcf\COA.SettlementFix.CreditorServiceWcf.RejectionReason.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\CreditorServiceWcf\COA.SettlementFix.CreditorServiceWcf.SettlementAttempt.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\CreditorServiceWcf\Service.wsdl" />
     <None Include="Connected Services\CreditorServiceWcf\Service.xsd">
       <SubType>Designer</SubType>
@@ -87,6 +81,13 @@
     <None Include="Connected Services\CreditorServiceWcf\Service3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\COA.EnterpriseServices.Communication.CommunicationResponse.datasource" />
+    <None Include="Properties\DataSources\COA.EnterpriseServices.Creditors.Contact.datasource" />
+    <None Include="Properties\DataSources\COA.EnterpriseServices.Creditors.OutsourcedCreditor.datasource" />
+    <None Include="Properties\DataSources\COA.EnterpriseServices.Creditors.Payment.datasource" />
+    <None Include="Properties\DataSources\COA.EnterpriseServices.Creditors.RejectionReason.datasource" />
+    <None Include="Properties\DataSources\COA.EnterpriseServices.Creditors.SettlementAttempt.datasource" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
