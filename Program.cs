@@ -1,25 +1,21 @@
 ﻿using COA.Common;
 using COA.EnterpriseServices.Creditors;
 using COA.SettlementFix.CreditorServiceWcf;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+using System;
 using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace COA.SettlementFix
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             var settingsProxy = new SettingsProxy();
             var quickbaseConnectionString = settingsProxy.GetConnectionString(SettingsProxy.Databases.Quickbase);
 
-			var creditorsToFix = DBWrapper.ExecuteCommand(quickbaseConnectionString, cmd =>
-			{
-				cmd.CommandText = @"select 
+            var creditorsToFix = DBWrapper.ExecuteCommand(quickbaseConnectionString, cmd =>
+            {
+                cmd.CommandText = @"select 
 					responseStatus.CreditorID
 					, responseStatus.ResponseDate
 					, responseStatus.RejectReasonID
@@ -49,21 +45,21 @@ namespace COA.SettlementFix
 				and responseStatus.ResponseDate > sa.[Date Created]
 				order by cl.[Enrolled Client Name]";
 
-				return cmd.ToList<Creditor>();
-			});
+                return cmd.ToList<Creditor>();
+            });
 
-			var client = new ServiceClient();
+            var client = new ServiceClient();
 
-			foreach (var creditor in creditorsToFix)
+            foreach (var creditor in creditorsToFix)
             {
-				var attempt = new SettlementAttemptUpdate
+				Console.WriteLine($"Updating {creditor.CreditorName} (creditor ID {creditor.CreditorId}, attempt {creditor.SettlementAttemptId}) for client {creditor.ClientName} to status {creditor.AttemptedStatus}");
+
+                var result = client.UpdateSettlementAttempt(new SettlementAttemptUpdate
 				{
 					SettlementAttemptId = creditor.SettlementAttemptId,
 					CreditorStatusType = creditor.AttemptedStatus.ToEnum<CreditorStatusType>(),
 					Notes = creditor.RejectReasonComment
-				};
-
-				var result = client.UpdateSettlementAttempt(attempt);
+				});
             }
         }
     }
