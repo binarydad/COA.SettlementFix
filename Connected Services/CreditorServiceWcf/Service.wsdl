@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/Imports">
+      <xsd:import schemaLocation="http://enterpriseservices/CreditorService/Service.svc?xsd=xsd0" namespace="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors" />
+      <xsd:import schemaLocation="http://enterpriseservices/CreditorService/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://enterpriseservices/CreditorService/Service.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://enterpriseservices/CreditorService/Service.svc?xsd=xsd3" namespace="http://EnterpriseServices.CommunicationService.com/COA.EnterpriseServices.Communication" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_AddOfferResponse_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOfferResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_AddOfferResponse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOfferResponseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_CopySettlementAttempt_InputMessage">
+    <wsdl:part name="parameters" element="tns:CopySettlementAttempt" />
+  </wsdl:message>
+  <wsdl:message name="IService_CopySettlementAttempt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CopySettlementAttemptResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCreditorPortalContacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCreditorPortalContacts" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCreditorPortalContacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCreditorPortalContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCreditorPortalContactsByCreditorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCreditorPortalContactsByCreditorId" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCreditorPortalContactsByCreditorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCreditorPortalContactsByCreditorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCreditorPortalContactsByCreditorProfileId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCreditorPortalContactsByCreditorProfileId" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCreditorPortalContactsByCreditorProfileId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCreditorPortalContactsByCreditorProfileIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCreditorContactById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCreditorContactById" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCreditorContactById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCreditorContactByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateCreditorContactOnboardStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCreditorContactOnboardStatus" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateCreditorContactOnboardStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCreditorContactOnboardStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetSettlements_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSettlements" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetSettlements_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSettlementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetSettlement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSettlement" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetSettlement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSettlementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetOutsourcedCreditors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutsourcedCreditors" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetOutsourcedCreditors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutsourcedCreditorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetRejectionReasons_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRejectionReasons" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetRejectionReasons_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRejectionReasonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPaymentsByCreditorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentsByCreditorId" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPaymentsByCreditorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentsByCreditorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPaymentsBySettlementAttemptId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentsBySettlementAttemptId" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPaymentsBySettlementAttemptId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentsBySettlementAttemptIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_SendCreditorEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendCreditorEmail" />
+  </wsdl:message>
+  <wsdl:message name="IService_SendCreditorEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendCreditorEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateSettlementAttempt_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSettlementAttempt" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateSettlementAttempt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSettlementAttemptResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateCreditor_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCreditor" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateCreditor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCreditorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_CreateBulkCreditorLink_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBulkCreditorLink" />
+  </wsdl:message>
+  <wsdl:message name="IService_CreateBulkCreditorLink_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBulkCreditorLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetBulkCreditorLinkIds_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBulkCreditorLinkIds" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetBulkCreditorLinkIds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBulkCreditorLinkIdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_QueueScrubList_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueueScrubList" />
+  </wsdl:message>
+  <wsdl:message name="IService_QueueScrubList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueueScrubListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_MatchScrubList_InputMessage">
+    <wsdl:part name="parameters" element="tns:MatchScrubList" />
+  </wsdl:message>
+  <wsdl:message name="IService_MatchScrubList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MatchScrubListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_MatchScrubLists_InputMessage">
+    <wsdl:part name="parameters" element="tns:MatchScrubLists" />
+  </wsdl:message>
+  <wsdl:message name="IService_MatchScrubLists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MatchScrubListsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_MatchScrubListsFromDatabase_InputMessage">
+    <wsdl:part name="parameters" element="tns:MatchScrubListsFromDatabase" />
+  </wsdl:message>
+  <wsdl:message name="IService_MatchScrubListsFromDatabase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MatchScrubListsFromDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GenerateAndEmailCapitalOneTemplate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateAndEmailCapitalOneTemplate" />
+  </wsdl:message>
+  <wsdl:message name="IService_GenerateAndEmailCapitalOneTemplate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateAndEmailCapitalOneTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GenerateAndEmailScrubClientTemplates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateAndEmailScrubClientTemplates" />
+  </wsdl:message>
+  <wsdl:message name="IService_GenerateAndEmailScrubClientTemplates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateAndEmailScrubClientTemplatesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="AddOfferResponse">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/AddOfferResponse" message="tns:IService_AddOfferResponse_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/AddOfferResponseResponse" message="tns:IService_AddOfferResponse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CopySettlementAttempt">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/CopySettlementAttempt" message="tns:IService_CopySettlementAttempt_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/CopySettlementAttemptResponse" message="tns:IService_CopySettlementAttempt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCreditorPortalContacts">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetCreditorPortalContacts" message="tns:IService_GetCreditorPortalContacts_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetCreditorPortalContactsResponse" message="tns:IService_GetCreditorPortalContacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCreditorPortalContactsByCreditorId">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetCreditorPortalContactsByCreditorId" message="tns:IService_GetCreditorPortalContactsByCreditorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetCreditorPortalContactsByCreditorIdResponse" message="tns:IService_GetCreditorPortalContactsByCreditorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCreditorPortalContactsByCreditorProfileId">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetCreditorPortalContactsByCreditorProfileId" message="tns:IService_GetCreditorPortalContactsByCreditorProfileId_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetCreditorPortalContactsByCreditorProfileIdResponse" message="tns:IService_GetCreditorPortalContactsByCreditorProfileId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCreditorContactById">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetCreditorContactById" message="tns:IService_GetCreditorContactById_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetCreditorContactByIdResponse" message="tns:IService_GetCreditorContactById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCreditorContactOnboardStatus">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/UpdateCreditorContactOnboardStatus" message="tns:IService_UpdateCreditorContactOnboardStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/UpdateCreditorContactOnboardStatusResponse" message="tns:IService_UpdateCreditorContactOnboardStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSettlements">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetSettlements" message="tns:IService_GetSettlements_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetSettlementsResponse" message="tns:IService_GetSettlements_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSettlement">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetSettlement" message="tns:IService_GetSettlement_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetSettlementResponse" message="tns:IService_GetSettlement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutsourcedCreditors">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetOutsourcedCreditors" message="tns:IService_GetOutsourcedCreditors_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetOutsourcedCreditorsResponse" message="tns:IService_GetOutsourcedCreditors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRejectionReasons">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetRejectionReasons" message="tns:IService_GetRejectionReasons_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetRejectionReasonsResponse" message="tns:IService_GetRejectionReasons_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentsByCreditorId">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetPaymentsByCreditorId" message="tns:IService_GetPaymentsByCreditorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetPaymentsByCreditorIdResponse" message="tns:IService_GetPaymentsByCreditorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentsBySettlementAttemptId">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetPaymentsBySettlementAttemptId" message="tns:IService_GetPaymentsBySettlementAttemptId_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetPaymentsBySettlementAttemptIdResponse" message="tns:IService_GetPaymentsBySettlementAttemptId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendCreditorEmail">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/SendCreditorEmail" message="tns:IService_SendCreditorEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/SendCreditorEmailResponse" message="tns:IService_SendCreditorEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSettlementAttempt">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/UpdateSettlementAttempt" message="tns:IService_UpdateSettlementAttempt_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/UpdateSettlementAttemptResponse" message="tns:IService_UpdateSettlementAttempt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCreditor">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/UpdateCreditor" message="tns:IService_UpdateCreditor_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/UpdateCreditorResponse" message="tns:IService_UpdateCreditor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateBulkCreditorLink">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/CreateBulkCreditorLink" message="tns:IService_CreateBulkCreditorLink_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/CreateBulkCreditorLinkResponse" message="tns:IService_CreateBulkCreditorLink_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBulkCreditorLinkIds">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetBulkCreditorLinkIds" message="tns:IService_GetBulkCreditorLinkIds_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetBulkCreditorLinkIdsResponse" message="tns:IService_GetBulkCreditorLinkIds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueueScrubList">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/QueueScrubList" message="tns:IService_QueueScrubList_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/QueueScrubListResponse" message="tns:IService_QueueScrubList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MatchScrubList">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/MatchScrubList" message="tns:IService_MatchScrubList_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/MatchScrubListResponse" message="tns:IService_MatchScrubList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MatchScrubLists">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/MatchScrubLists" message="tns:IService_MatchScrubLists_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/MatchScrubListsResponse" message="tns:IService_MatchScrubLists_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MatchScrubListsFromDatabase">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/MatchScrubListsFromDatabase" message="tns:IService_MatchScrubListsFromDatabase_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/MatchScrubListsFromDatabaseResponse" message="tns:IService_MatchScrubListsFromDatabase_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateAndEmailCapitalOneTemplate">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GenerateAndEmailCapitalOneTemplate" message="tns:IService_GenerateAndEmailCapitalOneTemplate_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GenerateAndEmailCapitalOneTemplateResponse" message="tns:IService_GenerateAndEmailCapitalOneTemplate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateAndEmailScrubClientTemplates">
+      <wsdl:input wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GenerateAndEmailScrubClientTemplates" message="tns:IService_GenerateAndEmailScrubClientTemplates_InputMessage" />
+      <wsdl:output wsaw:Action="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GenerateAndEmailScrubClientTemplatesResponse" message="tns:IService_GenerateAndEmailScrubClientTemplates_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

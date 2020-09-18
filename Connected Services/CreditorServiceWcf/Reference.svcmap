@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fe770a48-5d62-42bb-a180-62941f4d6b0f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://enterpriseservices/creditorservice/Service.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Service.wsdl" MetadataType="Wsdl" ID="bba72f1d-afc9-493e-a2c0-b1a834e9b48c" SourceId="1" SourceUrl="http://enterpriseservices/CreditorService/Service.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="Service.xsd" MetadataType="Schema" ID="c690e719-30cb-4d41-aeed-b338d37ed4c6" SourceId="1" SourceUrl="http://enterpriseservices/CreditorService/Service.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="830da542-3b4c-411a-9a20-e868d706f66b" SourceId="1" SourceUrl="http://enterpriseservices/CreditorService/Service.svc?xsd=xsd1" />
+    <MetadataFile FileName="Service2.xsd" MetadataType="Schema" ID="a75e15a7-d530-4c13-8f1f-59ec3dacb35e" SourceId="1" SourceUrl="http://enterpriseservices/CreditorService/Service.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service3.xsd" MetadataType="Schema" ID="03ebd539-1585-4fd5-84de-6fdb823202ac" SourceId="1" SourceUrl="http://enterpriseservices/CreditorService/Service.svc?xsd=xsd3" />
+    <MetadataFile FileName="Service.disco" MetadataType="Disco" ID="f1931ccc-6495-4595-b792-d392cacdc229" SourceId="1" SourceUrl="http://enterpriseservices/CreditorService/Service.svc?disco" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="a0b61990-0224-4730-b9b9-db68565c35d0" SourceId="1" SourceUrl="http://enterpriseservices/CreditorService/Service.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

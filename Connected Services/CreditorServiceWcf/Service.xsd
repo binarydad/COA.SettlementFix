@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors" elementFormDefault="qualified" targetNamespace="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://enterpriseservices/CreditorService/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://enterpriseservices/CreditorService/Service.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://enterpriseservices/CreditorService/Service.svc?xsd=xsd3" namespace="http://EnterpriseServices.CommunicationService.com/COA.EnterpriseServices.Communication" />
+  <xs:element name="AddOfferResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="response" nillable="true" type="tns:OfferResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="OfferResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContactId" type="xs:int" />
+      <xs:element minOccurs="0" name="CreditorId" type="xs:int" />
+      <xs:element minOccurs="0" name="CreditorStatusType" type="tns:CreditorStatusType" />
+      <xs:element minOccurs="0" name="OfferId" type="xs:int" />
+      <xs:element minOccurs="0" name="OfferLetterCheckSum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OutsourcedCreditor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OutsourcedCreditorId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RejectReason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RejectReasonId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ResponseChannel" type="tns:CreditorResponseChannel" />
+      <xs:element minOccurs="0" name="SifImportStatus" type="tns:SifImportStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OfferResponse" nillable="true" type="tns:OfferResponse" />
+  <xs:simpleType name="CreditorStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="CreditorWontSettle">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">12</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ManagerAssignedAccount">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">14</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ManagerReassigned">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">17</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NeedVerbalAuth">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">9</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NeedAtc">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">19</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="New">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OfferAbovePct">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">13</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OfferMadePending">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Settled">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SIFRecieved">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SpecialDraft">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SubmitForFinalApproval">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SubmitForSettlement">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SystemAssigned">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WaitingForChargeOff" />
+      <xs:enumeration value="WaitingForPOA">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WaitingForSIF">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Working">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CounterOfferResubmit">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">18</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SubmitForFinalApprovalAuto">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">24</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AccountRecalled">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">26</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AccountOutsourced">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">27</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NcaReviewed">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">20</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NcaBalanceInFull">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">21</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NcaNotDelinquentEnough">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">22</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NcaDelinquencyFollowUp">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">23</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CreditorStatusType" nillable="true" type="tns:CreditorStatusType" />
+  <xs:simpleType name="CreditorResponseChannel">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Portal" />
+      <xs:enumeration value="Email" />
+      <xs:enumeration value="Fax" />
+      <xs:enumeration value="VerbalCalculator" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CreditorResponseChannel" nillable="true" type="tns:CreditorResponseChannel" />
+  <xs:simpleType name="SifImportStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Complete" />
+      <xs:enumeration value="Pending" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SifImportStatus" nillable="true" type="tns:SifImportStatus" />
+  <xs:element name="AddOfferResponseResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddOfferResponseResult" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CopySettlementAttempt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="settlementAttemptId" type="xs:int" />
+        <xs:element minOccurs="0" name="overrideAttemptedAgent" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="creditorContactId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="overrideCreditorStatusType" nillable="true" type="tns:CreditorStatusType" />
+        <xs:element minOccurs="0" name="note" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="updatedBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PortalOfferStatus" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="RelatedCreditorContact" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CopySettlementAttemptResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CopySettlementAttemptResult" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCreditorPortalContacts">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCreditorPortalContactsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCreditorPortalContactsResult" nillable="true" type="tns:ArrayOfContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfContact">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Contact" nillable="true" type="tns:Contact" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContact" nillable="true" type="tns:ArrayOfContact" />
+  <xs:complexType name="Contact">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreditorName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreditorProfileId" type="xs:int" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="IsBulkOfferEmailRecipient" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsBulkOfferEmailSender" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsBulkOfferReplyEmailRecipient" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDefaultForCreditor" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPortalUser" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSecuredOfferEmailRecipient" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsSecuredOfferEmailReplyRecipient" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="OrginalCreditorID" nillable="true" type="q1:ArrayOflong" />
+      <xs:element minOccurs="0" name="PortalOnboardStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrimaryEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrimaryPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Verified" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Zip" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Contact" nillable="true" type="tns:Contact" />
+  <xs:element name="GetCreditorPortalContactsByCreditorId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="creditorId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCreditorPortalContactsByCreditorIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCreditorPortalContactsByCreditorIdResult" nillable="true" type="tns:ArrayOfContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCreditorPortalContactsByCreditorProfileId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="profileId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCreditorPortalContactsByCreditorProfileIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCreditorPortalContactsByCreditorProfileIdResult" nillable="true" type="tns:ArrayOfContact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCreditorContactById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="contactId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCreditorContactByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCreditorContactByIdResult" nillable="true" type="tns:Contact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCreditorContactOnboardStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="contactId" type="xs:int" />
+        <xs:element minOccurs="0" name="status" type="tns:OnboardStatusType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="OnboardStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PendingVerification" />
+      <xs:enumeration value="Activated" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OnboardStatusType" nillable="true" type="tns:OnboardStatusType" />
+  <xs:element name="UpdateCreditorContactOnboardStatusResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSettlements">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="filter" nillable="true" type="tns:SettlementAttemptFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="SettlementAttemptFilter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreditorContactId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="CreditorId" nillable="true" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CreditorIds" nillable="true" type="q2:ArrayOfint" />
+      <xs:element minOccurs="0" name="CreditorProfileId" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="FirstPaymentDateEnd" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FirstPaymentDateStart" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PortalSubmissionDateEnd" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PortalSubmissionDateStart" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ResponseDateEnd" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ResponseDateStart" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SettlementAttemptId" nillable="true" type="xs:int" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SettlementAttemptIds" nillable="true" type="q3:ArrayOfint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SettlementAttemptFilter" nillable="true" type="tns:SettlementAttemptFilter" />
+  <xs:element name="GetSettlementsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSettlementsResult" nillable="true" type="tns:ArrayOfSettlementAttempt" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfSettlementAttempt">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SettlementAttempt" nillable="true" type="tns:SettlementAttempt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSettlementAttempt" nillable="true" type="tns:ArrayOfSettlementAttempt" />
+  <xs:complexType name="SettlementAttempt">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Settlement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AttemptedAgent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientCity" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientFirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientId" type="xs:int" />
+          <xs:element minOccurs="0" name="ClientLastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientSsn" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientState" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientStreet" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ClientZip" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CoClientName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CoClientSsn" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreditorContactEmail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreditorContactFirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreditorContactId" type="xs:int" />
+          <xs:element minOccurs="0" name="CreditorContactLastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreditorProfileId" type="xs:int" />
+          <xs:element minOccurs="0" name="CreditorReferenceNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreditorStatusType" type="tns:CreditorStatusType" />
+          <xs:element minOccurs="0" name="CurrentBalance" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DelinquentQualifiedDays" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExpirationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FirstPaymentDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FollowUpDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FollowUpReason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="IsPortalCreditor" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LatestRejectReason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LatestRejectReasonID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LatestResponseCreditorStatusType" nillable="true" type="tns:CreditorStatusType" />
+          <xs:element minOccurs="0" name="LatestResponseDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="MinFirstPayment" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="NumberOfPayments" type="xs:int" />
+          <xs:element minOccurs="0" name="OfferAcceptanceMethod" type="tns:OfferAcceptanceMethod" />
+          <xs:element minOccurs="0" name="OfferLetterCheckSum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OriginalCreditorId" type="xs:int" />
+          <xs:element minOccurs="0" name="PaymentBreakdown" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="PoaFileCheckSum" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PortalSubmissionDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SalesAgentEmail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SalesAgentFirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SalesAgentId" type="xs:int" />
+          <xs:element minOccurs="0" name="SalesAgentLastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SalesAgentTeamLeaderEmail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SalesTeamName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SecondPaymentDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Settled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SettledDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SettlementAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SettlementTerm" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SpokeTo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SettlementAttempt" nillable="true" type="tns:SettlementAttempt" />
+  <xs:complexType name="Settlement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="__creditorStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="accountNum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="approximateBalances" type="xs:double" />
+      <xs:element minOccurs="0" name="creditorId" type="xs:long" />
+      <xs:element minOccurs="0" name="creditorStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="currentCreditorName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="customerCompany" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="estimatedSettlementAmount" type="xs:double" />
+      <xs:element minOccurs="0" name="originalCreditorName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="removedFromProgram" type="xs:boolean" />
+      <xs:element minOccurs="0" name="settledDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="settlementAmount" type="xs:double" />
+      <xs:element minOccurs="0" name="settlementApprovalNeeded" type="xs:boolean" />
+      <xs:element minOccurs="0" name="sfmEstimatedFee" type="xs:double" />
+      <xs:element minOccurs="0" name="totalPaymentsFuture" type="xs:int" />
+      <xs:element minOccurs="0" name="totalPaymentsUncleared" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Settlement" nillable="true" type="tns:Settlement" />
+  <xs:simpleType name="OfferAcceptanceMethod">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="PortalAcceptance" />
+      <xs:enumeration value="Email" />
+      <xs:enumeration value="AllMethods" />
+      <xs:enumeration value="BulkSpreadsheet" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OfferAcceptanceMethod" nillable="true" type="tns:OfferAcceptanceMethod" />
+  <xs:element name="GetSettlement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="settlementAttemptId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSettlementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSettlementResult" nillable="true" type="tns:SettlementAttempt" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOutsourcedCreditors">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOutsourcedCreditorsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetOutsourcedCreditorsResult" nillable="true" type="tns:ArrayOfOutsourcedCreditor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfOutsourcedCreditor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OutsourcedCreditor" nillable="true" type="tns:OutsourcedCreditor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOutsourcedCreditor" nillable="true" type="tns:ArrayOfOutsourcedCreditor" />
+  <xs:complexType name="OutsourcedCreditor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OutsourcedCreditor" nillable="true" type="tns:OutsourcedCreditor" />
+  <xs:element name="GetRejectionReasons">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRejectionReasonsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetRejectionReasonsResult" nillable="true" type="tns:ArrayOfRejectionReason" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfRejectionReason">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RejectionReason" nillable="true" type="tns:RejectionReason" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRejectionReason" nillable="true" type="tns:ArrayOfRejectionReason" />
+  <xs:complexType name="RejectionReason">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Display" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Order" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RejectionReason" nillable="true" type="tns:RejectionReason" />
+  <xs:element name="GetPaymentsByCreditorId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="creditorId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentsByCreditorIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPaymentsByCreditorIdResult" nillable="true" type="tns:ArrayOfPayment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Payment" nillable="true" type="tns:Payment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPayment" nillable="true" type="tns:ArrayOfPayment" />
+  <xs:complexType name="Payment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CreditorId" type="xs:int" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="PaymentNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="PaymentType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Payment" nillable="true" type="tns:Payment" />
+  <xs:element name="GetPaymentsBySettlementAttemptId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="settlementAttemptId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentsBySettlementAttemptIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPaymentsBySettlementAttemptIdResult" nillable="true" type="tns:ArrayOfPayment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendCreditorEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="tns:CreditorEmailRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CreditorEmailRequest">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AttachmentFiles" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element minOccurs="0" name="From" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerId" type="xs:int" />
+      <xs:element minOccurs="0" name="RequestType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="To" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreditorEmailRequest" nillable="true" type="tns:CreditorEmailRequest" />
+  <xs:element name="SendCreditorEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://EnterpriseServices.CommunicationService.com/COA.EnterpriseServices.Communication" minOccurs="0" name="SendCreditorEmailResult" nillable="true" type="q5:CommunicationResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSettlementAttempt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateParams" nillable="true" type="tns:SettlementAttemptUpdate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="SettlementAttemptUpdate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AttemptedAgent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CloseDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CloseReason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreditorContactId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CreditorId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="CreditorStatusType" type="tns:CreditorStatusType" />
+      <xs:element minOccurs="0" name="CurrentBalance" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FollowUpDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FollowUpReason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MinimumPayment" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumberOfPayments" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OfferAcceptanceMethod" type="tns:OfferAcceptanceMethod" />
+      <xs:element minOccurs="0" name="OfferAmount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PortalOfferStatus" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ProfileId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RelatedCreditorContact" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SettlementAmount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SettlementAttemptId" type="xs:int" />
+      <xs:element minOccurs="0" name="SettlementTerm" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SpokeTo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SettlementAttemptUpdate" nillable="true" type="tns:SettlementAttemptUpdate" />
+  <xs:element name="UpdateSettlementAttemptResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateSettlementAttemptResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCreditor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateParams" nillable="true" type="tns:CreditorUpdate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CreditorUpdate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreditorId" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentUpdateBalance" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreditorUpdate" nillable="true" type="tns:CreditorUpdate" />
+  <xs:element name="UpdateCreditorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCreditorResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateBulkCreditorLink">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="settlementAttemptIds" nillable="true" type="q6:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateBulkCreditorLinkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateBulkCreditorLinkResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBulkCreditorLinkIds">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="linkId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBulkCreditorLinkIdsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetBulkCreditorLinkIdsResult" nillable="true" type="q7:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueueScrubList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="importId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueueScrubListResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MatchScrubList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="importId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="rerunMatching" type="xs:boolean" />
+        <xs:element minOccurs="0" name="disableDatabaseCalls" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MatchScrubListResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MatchScrubLists">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="importIds" nillable="true" type="q8:ArrayOfstring" />
+        <xs:element minOccurs="0" name="rerunMatching" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MatchScrubListsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MatchScrubListsFromDatabase">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MatchScrubListsFromDatabaseResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateAndEmailCapitalOneTemplate">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateAndEmailCapitalOneTemplateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateAndEmailScrubClientTemplates">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateAndEmailScrubClientTemplatesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

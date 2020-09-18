@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors" location="http://enterpriseservices/CreditorService/Service.svc?wsdl=wsdl0" />
+  <wsdl:types />
+  <wsdl:binding name="BasicHttpBinding_IService" type="i0:IService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddOfferResponse">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/AddOfferResponse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CopySettlementAttempt">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/CopySettlementAttempt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCreditorPortalContacts">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetCreditorPortalContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCreditorPortalContactsByCreditorId">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetCreditorPortalContactsByCreditorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCreditorPortalContactsByCreditorProfileId">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetCreditorPortalContactsByCreditorProfileId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCreditorContactById">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetCreditorContactById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCreditorContactOnboardStatus">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/UpdateCreditorContactOnboardStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSettlements">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetSettlements" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSettlement">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetSettlement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutsourcedCreditors">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetOutsourcedCreditors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRejectionReasons">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetRejectionReasons" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentsByCreditorId">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetPaymentsByCreditorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentsBySettlementAttemptId">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetPaymentsBySettlementAttemptId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCreditorEmail">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/SendCreditorEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSettlementAttempt">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/UpdateSettlementAttempt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCreditor">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/UpdateCreditor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateBulkCreditorLink">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/CreateBulkCreditorLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBulkCreditorLinkIds">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GetBulkCreditorLinkIds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueueScrubList">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/QueueScrubList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MatchScrubList">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/MatchScrubList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MatchScrubLists">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/MatchScrubLists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MatchScrubListsFromDatabase">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/MatchScrubListsFromDatabase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateAndEmailCapitalOneTemplate">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GenerateAndEmailCapitalOneTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateAndEmailScrubClientTemplates">
+      <soap:operation soapAction="http://EnterpriseServices.CreditorService.com/COA.EnterpriseServices.Creditors/IService/GenerateAndEmailScrubClientTemplates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="BasicHttpBinding_IService" binding="tns:BasicHttpBinding_IService">
+      <soap:address location="http://enterpriseservices/CreditorService/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
