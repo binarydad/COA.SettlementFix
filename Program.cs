@@ -13,7 +13,8 @@ namespace COA.SettlementFix
             var settingsProxy = new SettingsProxy();
             var quickbaseConnectionString = settingsProxy.GetConnectionString(SettingsProxy.Databases.Quickbase);
 
-            var creditorsToFix = DBWrapper.ExecuteCommand(quickbaseConnectionString, cmd =>
+			// gather creditors with out-of-sync status (SQL <=> QuickBase)
+            var creditors = DBWrapper.ExecuteCommand(quickbaseConnectionString, cmd =>
             {
                 cmd.CommandText = @"select 
 					responseStatus.CreditorID
@@ -31,8 +32,8 @@ namespace COA.SettlementFix
 				from
 				(
 					select cr.CreditorID, st.[Status Name], cr.ResponseDate, cr.RejectReasonID, cr.RejectReasonComment, row_number() over (partition by cr.CreditorID order by cr.ResponseDate desc) RowNum
-					from CreditorResponse cr
-					join QB_Creditor_Status_Types st on st.[Record ID#] = cr.CreditorStatusTypeID	
+					from CreditorResponse cr (nolock)
+					join QB_Creditor_Status_Types st (nolock) on st.[Record ID#] = cr.CreditorStatusTypeID	
 					where cr.ResponseDate > '9/16/2020'
 				) responseStatus
 				cross apply dbo.[udfQB_Creditor_**CreditorStatus](responseStatus.CreditorID) currentStatus
@@ -50,16 +51,16 @@ namespace COA.SettlementFix
 
             var client = new ServiceClient();
 
-            foreach (var creditor in creditorsToFix)
+            foreach (var creditor in creditors)
             {
-				Console.WriteLine($"Updating {creditor.CreditorName} (creditor ID {creditor.CreditorId}, attempt {creditor.SettlementAttemptId}) for client {creditor.ClientName} to status {creditor.AttemptedStatus}");
+                Console.WriteLine($"Updating {creditor.CreditorName} (creditor ID {creditor.CreditorId}, attempt {creditor.SettlementAttemptId}) for client {creditor.ClientName} to status {creditor.AttemptedStatus}");
 
                 var result = client.UpdateSettlementAttempt(new SettlementAttemptUpdate
-				{
-					SettlementAttemptId = creditor.SettlementAttemptId,
-					CreditorStatusType = creditor.AttemptedStatus.ToEnum<CreditorStatusType>(),
-					Notes = creditor.RejectReasonComment
-				});
+                {
+                    SettlementAttemptId = creditor.SettlementAttemptId,
+                    CreditorStatusType = creditor.AttemptedStatus.ToEnum<CreditorStatusType>(),
+                    Notes = creditor.RejectReasonComment
+                });
             }
         }
     }
